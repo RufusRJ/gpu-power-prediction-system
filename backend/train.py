@@ -12,14 +12,15 @@ np.random.seed(42)
 rows = 2000
 
 Uavg = np.random.uniform(0, 100, rows)
-GRAMavg = np.random.uniform(0.1, 6.5, rows)
-GRAMmax = GRAMavg + np.random.uniform(0, 1, rows)
+GRAMavg = np.random.uniform(1, 64, rows)
+GRAMmax = GRAMavg + np.random.uniform(0, 8, rows)
 
 Pavg = (
-    0.5 * Uavg +
-    3 * GRAMavg +
-    0.2 * (Uavg * GRAMavg) / 10 +
-    np.random.normal(0, 2, rows)
+    0.6 * Uavg +
+    0.05 * GRAMavg +
+    0.02 * GRAMmax +
+    0.3 * (Uavg * GRAMavg) / 50 +
+    np.random.normal(0, 3, rows)
 )
 
 data = pd.DataFrame({
